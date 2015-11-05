@@ -9,3 +9,4 @@ Features:
     When executing for each player, you can use "@p" in the command, which will insert the player's username.
 
     Works on Bukkit/Spigot/Cauldron 1.7.10 and later
+Download at SpigotMC: https://www.spigotmc.org/resources/etherticks.14133/
