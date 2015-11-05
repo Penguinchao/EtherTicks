@@ -25,18 +25,27 @@ public class Configs {
 			Integer interval;
 			List<String> commands;
 			Boolean allPlayers;
+			Boolean requirePermission = false;
 			commands = (List<String>) main.getConfig().getList("tasks."+name+".commands");
 			main.getLogger().info("["+name+"] "+"Command Count: "+commands.size());
 			interval = main.getConfig().getInt("tasks."+name+".interval");
 			main.getLogger().info("["+name+"] "+"Interval: "+interval+" seconds");
 			allPlayers = main.getConfig().getBoolean("tasks."+name+".allplayers");
 			if(allPlayers){
+				requirePermission = main.getConfig().getBoolean("tasks."+name+".requirepermission");
+			}
+			if(allPlayers){
 				main.getLogger().info("["+name+"] "+"This task will fire for each player");
+				if(requirePermission){
+					main.getLogger().info("["+name+"] This task will require permissions for each player");
+				}else{
+					main.getLogger().info("["+name+"] This task will NOT require permissions for each player");
+				}
 			}else{
 				main.getLogger().info("["+name+"] "+"This task will not fire for each player");
 			}
 			main.getLogger().info("["+name+"] "+"Gathered information. Creating task.");
-			main.tasks[i] = new Task(etherTicks, interval, commands, allPlayers, name);
+			main.tasks[i] = new Task(etherTicks, interval, commands, allPlayers, name, requirePermission);
 			i++;
 		}
 		main.getLogger().info("Finished setting up Tasks!");

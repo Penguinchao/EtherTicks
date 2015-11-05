@@ -1,4 +1,5 @@
 console-logging: false
+debug-enabled: false
 #Create your tasks in the below section using this format.
 ##Intervals are in seconds
 ##If allplayers is true, the task will be done for every online player
@@ -13,5 +14,12 @@ tasks:
  sampletask2:
      interval: 20
      allplayers: true
+     requirepermission: true
      commands:
-      - say hello @p
+      - say hello @p, you have special permission
+ sampletask3:
+     interval: 25
+     allplayers: true
+     requirepermission: false
+     commands:
+      - say hello @p, you are not special
