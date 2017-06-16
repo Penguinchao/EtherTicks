@@ -38,7 +38,7 @@ public class Task {
 		if(commands.size() == 0 || commands == null){
 			main.logExtraMessage(name+" contains no commands.", false);
 			return;
-		}else if(main.getServer().getOnlinePlayers().length == 0 && allPlayers){
+		}else if(main.getServer().getOnlinePlayers().isEmpty() && allPlayers){
 			main.logExtraMessage("["+name+"] No players online. Doing nothing...", false);
 			return;
 		}
